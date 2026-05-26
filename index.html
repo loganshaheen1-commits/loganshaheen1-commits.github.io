@@ -3,22 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>My Personal Space</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 50px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            color: #24292e;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #111;
+            margin-bottom: 10px;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 600;
+            padding-bottom: 5px;
+        }
+        nav a.active {
+            color: #ff5a5f;
+            border-bottom: 2px solid #ff5a5f;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            height: 200px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+        }
+        /* Fun custom colors for placeholders */
+        .travel-bg { background: #e0f2f1; color: #00796b; }
+        .food-bg { background: #fff3e0; color: #e65100; }
+
+        .card-content {
+            padding: 20px;
+        }
+        .card-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .tag-travel { background: #e0f2f1; color: #00796b; }
+        .tag-food { background: #fff3e0; color: #e65100; }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #111;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This site is officially up and running via GitHub Pages.</p>
+
+    <header>
+        <h1>Welcome to My Space</h1>
+        <nav>
+            <a href="#" class="active">Travel & Food</a>
+            <a href="#">Work Experience</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-img travel-bg">✈️ Travel Photo Placeolder</div>
+                <div class="card-content">
+                    <span class="card-tag tag-travel">Travel</span>
+                    <h3 class="card-title">My Favorite Weekend Getaways</h3>
+                    <p>A collection of the best spots I've visited recently, from hidden trails to city cityscapes.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img food-bg">🍔 Food Photo Placeholder</div>
+                <div class="card-content">
+                    <span class="card-tag tag-food">Food</span>
+                    <h3 class="card-title">Top Eats & Local Spots</h3>
+                    <p>The ultimate breakdown of the best burger joints, coffee shops, and local culinary gems.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img travel-bg">🗺️ Adventure Placeholder</div>
+                <div class="card-content">
+                    <span class="card-tag tag-travel">Travel</span>
+                    <h3 class="card-title">Road Trip Itineraries</h3>
+                    <p>Mapping out the perfect driving routes, playlists, and must-see roadside stops.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
