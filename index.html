@@ -1,144 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Space</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: #ffffff;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            color: #111;
-            margin-bottom: 10px;
-        }
-        nav {
-            margin-top: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #666;
-            font-weight: 600;
-            padding-bottom: 5px;
-        }
-        nav a.active {
-            color: #ff5a5f;
-            border-bottom: 2px solid #ff5a5f;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card-img {
-            height: 200px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-weight: bold;
-        }
-        
-        /* Custom section styles */
-        .travel-bg { background: #e0f2f1; color: #00796b; }
-        .food-bg { background: #fff3e0; color: #e65100; }
-        .exp-bg { background: #f3e5f5; color: #4a148c; }
-
-        .card-content {
-            padding: 20px;
-        }
-        .card-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .tag-travel { background: #e0f2f1; color: #00796b; }
-        .tag-food { background: #fff3e0; color: #e65100; }
-        .tag-exp { background: #f3e5f5; color: #4a148c; }
-        
-        .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #111;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090c0f">
+  <meta name="description" content="Logan Shaheen's portfolio: applied AI projects, marketing experience, consumer behavior, e-commerce, and the ideas he is building.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Logan Shaheen — Curious by nature. Building with intention.">
+  <meta property="og:description" content="Applied AI, marketing, consumer behavior, and the systems I'm building along the way.">
+  <meta property="og:url" content="https://loganshaheen1-commits.github.io/">
+  <title>Logan Shaheen — AI, Marketing &amp; Curiosity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --bg:#090c0f; --panel:#11171a; --panel2:#171f21; --ink:#f5f6f0; --muted:#9ca8a9; --line:rgba(232,245,235,.14); --accent:#cafa78; --accent2:#81d5c5; --max:1200px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:94px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 "DM Sans", system-ui, sans-serif; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; } a:focus-visible, button:focus-visible, summary:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+    ::selection { color:#08100b; background:var(--accent); }
+    .skip-link { position:absolute; top:-70px; left:20px; z-index:100; padding:10px 16px; background:var(--accent); color:#101710; }
+    .skip-link:focus { top:12px; }
+    .shell { width:min(calc(100% - 64px), var(--max)); margin-inline:auto; }
+    .site-header { position:sticky; top:0; z-index:30; background:rgba(9,12,15,.84); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); }
+    .header-inner { min-height:78px; display:flex; align-items:center; gap:28px; justify-content:space-between; }
+    .brand { display:inline-flex; align-items:center; gap:12px; font:700 16px/1 "Space Grotesk",sans-serif; letter-spacing:-.04em; white-space:nowrap; }
+    .brand-mark { width:39px; height:39px; border:1px solid var(--accent); color:var(--accent); display:grid; place-items:center; border-radius:12px; font-weight:700; }
+    .desktop-nav { display:flex; align-items:center; gap:30px; margin-left:auto; }
+    .desktop-nav a { color:#cad4cf; font-size:13px; font-weight:600; transition:color .2s; }
+    .desktop-nav a:hover { color:var(--accent); }
+    .header-action { display:inline-flex; align-items:center; gap:10px; border:1px solid #455448; border-radius:100px; padding:9px 15px; font-size:12px; font-weight:700; white-space:nowrap; }
+    .header-action:hover { border-color:var(--accent); background:rgba(202,250,120,.06); }
+    .mobile-nav { display:none; }
+    .hero { position:relative; isolation:isolate; border-bottom:1px solid var(--line); }
+    .hero:before { content:""; z-index:-1; position:absolute; inset:0; background:radial-gradient(circle at 88% 36%,rgba(87,150,136,.13),transparent 35%),linear-gradient(90deg,transparent 0%,rgba(202,250,120,.024) 50%,transparent 100%); }
+    .hero-layout { display:grid; grid-template-columns:minmax(0,1.32fr) minmax(340px,.68fr); gap:42px; align-items:center; min-height:675px; padding-top:106px; padding-bottom:102px; }
+    .eyebrow { display:flex; align-items:center; gap:12px; color:var(--accent); text-transform:uppercase; letter-spacing:.20em; font-size:11px; font-weight:700; }
+    .eyebrow:before { content:""; display:block; height:1px; width:26px; background:var(--accent); }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { font-family:"Space Grotesk",system-ui,sans-serif; }
+    h1 { font-size:clamp(58px,6.4vw,98px); font-weight:600; letter-spacing:-.085em; line-height:.99; margin:24px 0 29px; max-width:800px; }
+    h1 span { display:block; color:var(--accent); }
+    .hero-description { font-size:clamp(16px,1.7vw,19px); line-height:1.75; max-width:600px; color:#b4c1bc; }
+    .hero-buttons { display:flex; gap:13px; flex-wrap:wrap; margin-top:35px; }
+    .btn { display:inline-flex; gap:13px; align-items:center; justify-content:center; font-weight:700; font-size:13px; border-radius:100px; padding:14px 20px; transition:transform .2s,background .2s,border-color .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:var(--accent); color:#151b11; } .btn-primary:hover { background:#dfffab; }
+    .btn-outline { border:1px solid #3c4946; color:var(--ink); } .btn-outline:hover { border-color:var(--accent); }
+    .hero-footnote { display:flex; align-items:center; gap:10px; margin-top:55px; font-size:12px; color:var(--muted); letter-spacing:.04em; }
+    .pulse { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(202,250,120,.10); }
+    .visual { position:relative; display:grid; place-items:center; min-height:425px; }
+    .visual-orbit { width:min(100%,420px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(202,250,120,.16); position:relative; display:grid; place-items:center; background:radial-gradient(circle,rgba(202,250,120,.07) 0, transparent 66%); }
+    .visual-orbit:before { content:""; position:absolute; inset:52px; border:1px dashed rgba(170,216,181,.22); border-radius:50%; }
+    .visual-orbit:after { content:""; position:absolute; inset:100px; border:1px solid rgba(170,216,181,.16); border-radius:50%; }
+    .orbit-core { width:134px; height:134px; position:relative; z-index:2; border:1px solid rgba(202,250,120,.48); border-radius:28px; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-9deg); background:#151f1a; box-shadow:0 28px 90px rgba(0,0,0,.35); }
+    .orbit-core strong { font:700 58px/.94 "Space Grotesk",sans-serif; letter-spacing:-.09em; color:var(--accent); }
+    .orbit-core small { font-size:9px; letter-spacing:.2em; margin-top:7px; color:#d1e5d0; font-weight:700; }
+    .orb { position:absolute; z-index:3; border:1px solid rgba(231,244,229,.16); background:#162022; border-radius:100px; color:#e7f0e8; font-size:11px; font-weight:700; padding:11px 16px; letter-spacing:.06em; box-shadow:0 10px 28px rgba(0,0,0,.22); }
+    .orb.one { top:3%; left:32%; }.orb.two { right:-7%; top:32%; }.orb.three { bottom:8%; right:11%; }.orb.four { left:-9%; bottom:29%; }
+    .orb span { display:inline-block; height:6px; width:6px; border-radius:50%; background:var(--accent); margin-right:8px; vertical-align:middle; }
+    .strip { border-bottom:1px solid var(--line); background:#0e1315; }
+    .strip-content { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; padding-top:22px; padding-bottom:22px; }
+    .strip-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--muted); }
+    .strip-tags { display:flex; flex-wrap:wrap; gap:13px 25px; font-size:12px; color:#d3d9d3; font-weight:600; }
+    .strip-tags span:before { content:"+"; color:var(--accent); margin-right:8px; }
+    section.content { padding:116px 0; border-bottom:1px solid var(--line); }
+    .section-header { display:flex; justify-content:space-between; align-items:end; gap:35px; margin-bottom:45px; }
+    .section-kicker { color:var(--accent); letter-spacing:.19em; font-size:11px; text-transform:uppercase; font-weight:700; margin-bottom:13px; }
+    h2 { font-size:clamp(40px,5vw,65px); font-weight:600; letter-spacing:-.065em; line-height:1.04; margin:0; }
+    .section-intro { max-width:380px; color:var(--muted); font-size:14px; margin:0 0 5px; line-height:1.75; }
+    .project-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .project { position:relative; background:linear-gradient(155deg,#152023 0%,#111719 75%); border:1px solid var(--line); border-radius:21px; padding:34px; min-height:395px; display:flex; flex-direction:column; overflow:hidden; }
+    .project:after { content:""; position:absolute; width:210px; height:210px; border:1px solid rgba(202,250,120,.08); border-radius:50%; right:-100px; top:-100px; pointer-events:none; }
+    .project:nth-child(2) { background:linear-gradient(155deg,#1e2223,#111719 74%); }
+    .project.wide { grid-column:1/-1; min-height:260px; display:grid; grid-template-columns:1.2fr .8fr; align-items:end; gap:30px; background:linear-gradient(115deg,#19251f,#111719); }
+    .project-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:70px; }
+    .project.wide .project-top { margin-bottom:30px; }
+    .number { color:var(--accent); font:600 12px "Space Grotesk",sans-serif; letter-spacing:.13em; }
+    .status { border:1px solid #536154; border-radius:100px; color:#c3d7c5; font-size:10px; padding:5px 10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
+    .project h3 { font-size:clamp(27px,3vw,37px); line-height:1.1; letter-spacing:-.055em; font-weight:600; margin:0 0 15px; }
+    .project p { color:#b2c1bb; font-size:14px; max-width:530px; line-height:1.75; margin:0; }
+    .project-footer { display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:30px; }
+    .project-footer span { font-size:10px; text-transform:uppercase; letter-spacing:.07em; font-weight:700; padding:7px 10px; border:1px solid rgba(223,236,227,.17); border-radius:100px; color:#bbc9c0; }
+    .project-note { margin-top:20px; color:#8c9b94; font-size:12px; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .about-copy { font-size:17px; color:#bfcbc5; line-height:1.85; }
+    .about-copy strong { color:#f1f7f1; font-weight:600; }
+    .small-note { margin-top:28px; border-left:2px solid var(--accent); padding:10px 0 10px 23px; color:#edf2e9; font:500 clamp(19px,2.4vw,24px)/1.55 "Space Grotesk",sans-serif; letter-spacing:-.03em; }
+    .topic-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:26px; }
+    .topic { min-height:145px; padding:20px; border-radius:16px; border:1px solid var(--line); background:var(--panel); }
+    .topic span { color:var(--accent); font:600 11px "Space Grotesk",sans-serif; }
+    .topic h3 { font-size:18px; letter-spacing:-.035em; line-height:1.25; margin:14px 0 0; font-weight:500; }
+    .timeline { border-top:1px solid var(--line); margin-top:37px; }
+    .timeline-item { display:grid; grid-template-columns:210px 1fr; gap:40px; padding:30px 0; border-bottom:1px solid var(--line); }
+    .timeline-date { color:var(--accent); font-size:12px; font-weight:700; letter-spacing:.05em; padding-top:5px; }
+    .timeline-item h3 { font-size:23px; letter-spacing:-.04em; margin:0 0 5px; }
+    .timeline-role { color:#d0dcd2; font-size:13px; font-weight:700; margin-bottom:8px; }
+    .timeline-item p { max-width:730px; font-size:14px; color:var(--muted); margin:0; line-height:1.8; }
+    .direction-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:35px; }
+    .direction { border-top:1px solid #62735c; padding:25px 18px 0 0; }
+    .direction .direction-index { color:var(--accent); font-size:11px; letter-spacing:.1em; }
+    .direction h3 { font-size:22px; letter-spacing:-.05em; line-height:1.22; margin:17px 0 9px; font-weight:600; }
+    .direction p { font-size:13px; line-height:1.75; color:var(--muted); }
+    .github-shell { border:1px solid var(--line); border-radius:22px; background:linear-gradient(150deg,#17201c,#111719); padding:30px; }
+    .github-heading { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-bottom:25px; border-bottom:1px solid var(--line); }
+    .github-identity { display:flex; align-items:center; gap:15px; min-width:0; }
+    .github-icon { width:52px; height:52px; border:1px solid rgba(202,250,120,.3); border-radius:14px; display:grid; place-items:center; color:var(--accent); flex-shrink:0; }
+    .github-identity h3 { font-size:20px; letter-spacing:-.03em; margin:0; overflow-wrap:anywhere; }
+    .github-identity p { color:var(--muted); font-size:12px; margin:2px 0 0; }
+    .github-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:25px; }
+    .repo-card { display:flex; flex-direction:column; gap:10px; border:1px solid var(--line); background:#101719; padding:22px; border-radius:14px; min-width:0; transition:border-color .2s,transform .2s; }
+    .repo-card:hover { border-color:#6a8c62; transform:translateY(-2px); }
+    .repo-card strong { font:600 16px/1.3 "Space Grotesk",sans-serif; overflow-wrap:anywhere; }
+    .repo-card p { color:var(--muted); font-size:12px; margin:0; flex:1; }
+    .repo-foot { display:flex; justify-content:space-between; color:#b6c5b7; font-size:11px; gap:14px; }
+    .repo-dot { display:inline-block; width:7px; height:7px; background:var(--accent2); border-radius:50%; margin-right:6px; }
+    .repo-hint { font-size:12px; color:var(--muted); margin:22px 0 0; }
+    .contact { padding:110px 0 75px; background:radial-gradient(ellipse at 55% 90%,rgba(163,225,131,.08),transparent 60%); }
+    .contact-layout { display:flex; justify-content:space-between; align-items:end; gap:50px; }
+    .contact h2 { max-width:800px; margin-bottom:20px; }
+    .contact p { max-width:590px; color:#b4c0b7; font-size:15px; line-height:1.8; }
+    .contact-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:27px; }
+    .footer { border-top:1px solid var(--line); padding:30px 0 42px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:15px; color:#82958a; font-size:11px; }
+    .footer a { color:#d0ddd0; }
+    .footer a:hover { color:var(--accent); }
+    @media(max-width:950px) {
+      .desktop-nav,.header-action { display:none; } .mobile-nav { display:block; position:relative; font-size:13px; }
+      .mobile-nav summary { cursor:pointer; list-style:none; border:1px solid #3a483d; border-radius:30px; padding:9px 15px; font-weight:700; }
+      .mobile-nav summary::-webkit-details-marker { display:none; }
+      .mobile-menu { position:absolute; top:43px; right:0; background:#151d1e; border:1px solid var(--line); box-shadow:0 20px 50px #0009; border-radius:14px; padding:10px; min-width:205px; display:grid; gap:2px; }
+      .mobile-menu a { padding:9px 12px; border-radius:7px; color:#e9f1e9; }
+      .mobile-menu a:hover { background:#233026; }
+      .hero-layout { grid-template-columns:1fr; padding-top:88px; gap:20px; }
+      .visual { min-height:320px; max-width:380px; margin:0 auto; width:100%; }
+      .visual-orbit { width:315px; }
+      .orb.two { right:-6%; }.orb.four { left:-6%; }
+      .about-grid { gap:42px; }
+      .timeline-item { grid-template-columns:155px 1fr; }
+    }
+    @media(max-width:650px) {
+      .shell { width:min(calc(100% - 36px), var(--max)); }
+      .header-inner { min-height:69px; }
+      h1 { font-size:clamp(53px,13vw,82px); }
+      .hero-layout { min-height:0; padding-top:75px; padding-bottom:70px; }
+      .hero-description { font-size:16px; }
+      .hero-footnote { margin-top:38px; }
+      .visual { min-height:285px; }
+      .visual-orbit { width:270px; }
+      .visual-orbit:before { inset:38px; }.visual-orbit:after { inset:78px; }
+      .orbit-core { width:100px; height:100px; border-radius:23px; }.orbit-core strong { font-size:46px; }
+      .orb { font-size:9px; padding:8px 11px; }
+      .orb.two { right:-5%; }.orb.four { left:-7%; }
+      section.content { padding:78px 0; }
+      .section-header { display:block; margin-bottom:30px; }
+      .section-intro { margin-top:20px; }
+      .project-grid,.about-grid,.github-results,.direction-grid { grid-template-columns:1fr; }
+      .project { padding:26px; min-height:340px; }
+      .project-top { margin-bottom:54px; }
+      .project.wide { display:flex; min-height:350px; }
+      .project.wide .project-top { margin-bottom:54px; }
+      .topic-grid { gap:9px; }
+      .topic { min-height:124px; padding:16px; }
+      .timeline-item { grid-template-columns:1fr; gap:9px; padding:25px 0; }
+      .direction-grid { gap:12px; }
+      .direction { padding-bottom:12px; }
+      .github-shell { padding:21px; }
+      .github-identity h3 { font-size:16px; }
+      .contact { padding:75px 0 60px; }
+      .contact-layout { display:block; }
+      .footer { padding-bottom:28px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>Welcome to My Space</h1>
-        <nav>
-            <a href="#" class="active">Travel & Food</a>
-            <a href="#">Work Experience</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <div class="card-img travel-bg">✈️ Travel Photos</div>
-                <div class="card-content">
-                    <span class="card-tag tag-travel">Travel</span>
-                    <h3 class="card-title">My Favorite Weekend Getaways</h3>
-                    <p>A collection of the best spots I've visited recently, from hidden trails to city cityscapes.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img food-bg">🍔 Food Spots</div>
-                <div class="card-content">
-                    <span class="card-tag tag-food">Food</span>
-                    <h3 class="card-title">Top Eats & Local Gems</h3>
-                    <p>The ultimate breakdown of the best burger joints, coffee shops, and local culinary favorites.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img exp-bg">⚡ Memorable Experiences</div>
-                <div class="card-content">
-                    <span class="card-tag tag-exp">Experiences</span>
-                    <h3 class="card-title">Live Events & Adventures</h3>
-                    <p>From games and concerts to massive student events and milestones, here's what's been happening off the clock.</p>
-                </div>
-            </div>
-        </div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="#top" class="brand" aria-label="Logan Shaheen, home"><span class="brand-mark">LS<span aria-hidden="true">.</span></span> LOGAN SHAHEEN</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#work">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#direction">What's next</a><a href="#github">GitHub</a>
+      </nav>
+      <a class="header-action" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+      <details class="mobile-nav"><summary>Menu ☰</summary><nav class="mobile-menu" aria-label="Mobile navigation"><a href="#work">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#direction">What's next</a><a href="#github">GitHub</a><a href="#contact">Contact</a></nav></details>
     </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-layout">
+        <div>
+          <div class="eyebrow">Marketing mind. Builder's curiosity.</div>
+          <h1 id="hero-title">I ask why.<span>Then I build.</span></h1>
+          <p class="hero-description">I'm Logan — a marketer drawn to the way people think, why they choose what they choose, and how AI can make good ideas more useful. This is where I share what I'm working on, what I'm learning, and the questions that keep me curious.</p>
+          <div class="hero-buttons"><a class="btn btn-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#about">A little about me <span aria-hidden="true">→</span></a></div>
+          <div class="hero-footnote"><span class="pulse" aria-hidden="true"></span> Always curious. Currently building in public.</div>
+        </div>
+        <div class="visual" aria-hidden="true"><div class="visual-orbit"><div class="orbit-core"><strong>LS.</strong><small>IN PROGRESS</small></div><div class="orb one"><span></span>PEOPLE</div><div class="orb two"><span></span>AI</div><div class="orb three"><span></span>BRANDS</div><div class="orb four"><span></span>SYSTEMS</div></div></div>
+      </div>
+    </section>
+    <div class="strip"><div class="shell strip-content"><span class="strip-label">The things that connect my work</span><div class="strip-tags"><span>Consumer behavior</span><span>E-commerce</span><span>Applied AI</span><span>Creative problem-solving</span></div></div></div>
 
+    <section class="content" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-header"><div><div class="section-kicker">01 / Selected work</div><h2 id="work-title">Things I'm building.</h2></div><p class="section-intro">I like using tools to solve problems I actually run into. These are working ideas and evolving systems, not polished products pretending to be finished.</p></div>
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-top"><span class="number">PROJECT / 001</span><span class="status">In development</span></div>
+            <div><h3>Resume Intelligence HQ</h3><p>An AI-assisted way to examine a job description, compare it with real experience, and separate keyword matching from the questions a recruiter would actually ask. The goal is better judgment, not a made-up magic score.</p></div>
+            <div class="project-footer"><span>AI workflows</span><span>Career systems</span><span>Evaluation</span></div>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="number">PROJECT / 002</span><span class="status">In development</span></div>
+            <div><h3>Job Discovery HQ</h3><p>A structured approach to finding roles that fit the person, not just the search term. It brings together location priorities, role requirements, research, and thoughtful fit assessments to make a noisy job search more intentional.</p></div>
+            <div class="project-footer"><span>Research</span><span>AI-assisted discovery</span><span>Decision design</span></div>
+          </article>
+          <article class="project wide">
+            <div>
+              <div class="project-top"><span class="number">PROJECT / 003</span><span class="status">Active workspace</span></div>
+              <h3>Operation Slow Burn</h3>
+              <p>My personal operating system for career development: turning conversations, mentor feedback, learning, and weekly priorities into concrete next steps. It's a reminder that progress comes from doing the work, not just planning it.</p>
+            </div>
+            <div class="project-footer"><span>Notion</span><span>Process design</span><span>Personal growth</span><span>Iterative improvement</span></div>
+          </article>
+        </div>
+        <p class="project-note">These case-study summaries describe the work in progress. I'll add demos, screenshots, outcomes, and code links as each project becomes ready to share.</p>
+      </div>
+    </section>
+
+    <section class="content" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div><div class="section-kicker">02 / The person behind the projects</div><h2 id="about-title">Curiosity is the common thread.</h2><div class="small-note">I'm interested in what makes people tick — and what we can make better once we understand them.</div></div>
+        <div class="about-copy"><p>I recently graduated from <strong>Loyola University Maryland</strong> with a degree in marketing. Along the way, I studied in Copenhagen, helped lead our men's rugby club, and spent time learning how brands show up in people's lives.</p><p>Professionally, I've worked across <strong>e-commerce, marketing research, and growth</strong>. The more I learned about those fields, the more questions I had about consumer decisions, the systems teams use, and what technology makes possible.</p><p>That's what drew me toward AI. I'm not trying to put AI in front of everything. I'm interested in finding where it actually helps — improving a workflow, clarifying a decision, or making space for more creative thinking.</p><p>Outside of work, I enjoy reading, exploring new places, rugby, and conversations with people who see the world differently.</p></div>
+      </div>
+    </section>
+
+    <section class="content" id="experience" aria-labelledby="experience-title">
+      <div class="shell"><div class="section-header"><div><div class="section-kicker">03 / Experience</div><h2 id="experience-title">What brought me here.</h2></div><p class="section-intro">A background in marketing, marketplaces, research, and team leadership — and a lot of learning still ahead.</p></div>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-date">SUMMER 2026</div><div><h3>Attention Arc</h3><div class="timeline-role">Growth Intern · Durham, NC</div><p>Supported new-business research, pitch materials, proposal coordination, market and competitor research, and HubSpot pipeline work. Learned how good questions and clear storytelling support business growth.</p></div></div>
+          <div class="timeline-item"><div class="timeline-date">2025 — 2026</div><div><h3>Trinity Group International</h3><div class="timeline-role">Marketing Intern · E-commerce</div><p>Worked with Amazon Seller Central, product listings, keyword research, marketplace content, and a large catalog of licensed products. Got a close-up view of how products are discovered and presented online.</p></div></div>
+          <div class="timeline-item"><div class="timeline-date">CLASS OF 2026</div><div><h3>Loyola University Maryland</h3><div class="timeline-role">BBA, Marketing · Men's Rugby Club President</div><p>Built a foundation in business and marketing while developing leadership skills through rugby. Also spent a semester studying abroad in Copenhagen.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="direction" aria-labelledby="direction-title">
+      <div class="shell"><div class="section-header"><div><div class="section-kicker">04 / Where I'm headed</div><h2 id="direction-title">What I want to get better at.</h2></div><p class="section-intro">I don't think a career has to fit into one neat label. These are the areas I keep coming back to.</p></div>
+      <div class="direction-grid">
+        <div class="direction"><span class="direction-index">01 — UNDERSTAND</span><h3>People &amp; consumer behavior</h3><p>Exploring the motivations, habits, and choices behind what people buy, use, and believe.</p></div>
+        <div class="direction"><span class="direction-index">02 — GROW</span><h3>E-commerce &amp; brand growth</h3><p>Learning how products, storytelling, digital experiences, and data connect to business outcomes.</p></div>
+        <div class="direction"><span class="direction-index">03 — BUILD</span><h3>Useful AI systems</h3><p>Designing practical workflows that help people research, decide, and spend time on higher-value work.</p></div>
+      </div>
+      </div>
+    </section>
+
+    <section class="content" id="github" aria-labelledby="github-title">
+      <div class="shell"><div class="section-header"><div><div class="section-kicker">05 / GitHub</div><h2 id="github-title">The work behind the work.</h2></div><p class="section-intro">Code, experiments, and iterations. This section displays my public GitHub repositories as I add more to the collection.</p></div>
+        <div class="github-shell">
+          <div class="github-heading">
+            <div class="github-identity"><div class="github-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.64c.55.1.76-.24.76-.54v-2.12c-3.09.67-3.74-1.31-3.74-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 1.04 2.96.73.1-.72.4-1.21.73-1.49-2.47-.28-5.06-1.23-5.06-5.49 0-1.22.44-2.22 1.14-3-.12-.28-.49-1.42.11-2.95 0 0 .93-.3 3.05 1.15a10.55 10.55 0 0 1 5.56 0c2.12-1.44 3.05-1.15 3.05-1.15.6 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 3.0 0 4.27-2.6 5.21-5.08 5.48.41.36.78 1.08.78 2.17V22c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></div><div><h3>@loganshaheen1-commits</h3><p>Public repositories, pulled from GitHub</p></div></div>
+            <a class="btn btn-outline" href="https://github.com/loganshaheen1-commits" target="_blank" rel="noopener noreferrer">Visit GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+          <div id="github-results" class="github-results" aria-live="polite"><p>Loading public repositories…</p></div>
+          <p class="repo-hint">Only public repositories appear here. The three project descriptions above are separate case studies; code links will be added when available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-layout"><div><div class="section-kicker">06 / Start a conversation</div><h2 id="contact-title">Interesting people make interesting things happen.</h2><p>I enjoy talking about marketing, consumer behavior, useful technology, and ideas that haven't quite found their shape yet. If any of that resonates, I'd be glad to connect.</p><div class="contact-actions"><a class="btn btn-primary" href="https://www.linkedin.com/in/logan-shaheen/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://github.com/loganshaheen1-commits" target="_blank" rel="noopener noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a></div></div></div>
+    </section>
+  </main>
+  <footer class="shell footer"><span>© <span id="year">2026</span> Logan Shaheen. Built with curiosity.</span><span><a href="#top">Back to top ↑</a> &nbsp; · &nbsp; <a href="https://www.linkedin.com/in/logan-shaheen/" target="_blank" rel="noopener noreferrer">LinkedIn</a> &nbsp; · &nbsp; <a href="https://github.com/loganshaheen1-commits" target="_blank" rel="noopener noreferrer">GitHub</a></span></footer>
+  <script>
+    (function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      var container = document.getElementById('github-results');
+      var profile = 'https://github.com/loganshaheen1-commits';
+      function item(tag, className, value) { var el=document.createElement(tag); if(className) el.className=className; if(value!==undefined) el.textContent=value; return el; }
+      function fallback() {
+        container.replaceChildren();
+        var link=item('a','repo-card'); link.href=profile+'/loganshaheen1-commits.github.io'; link.target='_blank'; link.rel='noopener noreferrer';
+        link.append(item('strong','', 'Personal Portfolio Website'),item('p','','The source code for this site. Browse the repository on GitHub.'),item('span','repo-foot','View repository ↗'));
+        container.append(link);
+      }
+      fetch('https://api.github.com/users/loganshaheen1-commits/repos?sort=updated&per_page=100', {headers:{'Accept':'application/vnd.github+json'}})
+        .then(function(response){ if(!response.ok) throw new Error('GitHub unavailable'); return response.json(); })
+        .then(function(repos){
+          if(!Array.isArray(repos)||!repos.length){fallback();return;}
+          container.replaceChildren();
+          repos.filter(function(repo){return !repo.private&&!repo.fork;}).slice(0,6).forEach(function(repo){
+            var link=item('a','repo-card'); link.href=repo.html_url; link.target='_blank'; link.rel='noopener noreferrer';
+            link.append(item('strong','',repo.name),item('p','',repo.description||'A public project on my GitHub.'));
+            var meta=item('span','repo-foot'); var language=item('span','',repo.language||'Repository'); var updated=item('span','','Explore ↗'); meta.append(language,updated); link.append(meta); container.append(link);
+          });
+          if(!container.childElementCount) fallback();
+        }).catch(fallback);
+      document.querySelectorAll('.mobile-menu a').forEach(function(link){
+        link.addEventListener('click',function(){var details=document.querySelector('.mobile-nav'); if(details) details.open=false;});
+      });
+    }());
+  </script>
 </body>
 </html>
