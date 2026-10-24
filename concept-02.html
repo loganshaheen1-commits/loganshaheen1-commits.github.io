@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c11">
+  <meta name="description" content="Logan Shaheen — marketing, consumer curiosity, and useful AI projects. A personal portfolio in progress.">
+  <title>Logan Shaheen — Portfolio Concept 02</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0c11; --bg2:#11131b; --card:#161923; --white:#f6f5f1; --muted:#b4b6c4; --faint:#7e8498; --purple:#c0aeff; --mint:#a6dfd3; --orange:#f7bd89; --border:#313341; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; background:var(--bg); color:var(--white); font:16px/1.7 "DM Sans",Arial,sans-serif; }
+    a { text-decoration:none; color:inherit; }
+    a:focus-visible,button:focus-visible,summary:focus-visible { outline:2px solid var(--purple); outline-offset:4px; }
+    ::selection { background:var(--purple); color:var(--bg); }
+    .container { width:min(1100px,calc(100% - 52px)); margin-inline:auto; }
+    .skip { position:absolute; left:12px; top:-70px; z-index:999; padding:10px; background:var(--purple); color:#0b0c11; }.skip:focus { top:10px; }
+    header { position:sticky; top:0; z-index:20; background:rgba(11,12,17,.89); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.07); }
+    .header-content { display:flex; align-items:center; justify-content:space-between; min-height:75px; gap:18px; }
+    .logo { font:700 22px/1 "Space Grotesk",sans-serif; letter-spacing:-.08em; white-space:nowrap; }.logo span { color:var(--purple); }
+    nav { display:flex; align-items:center; gap:30px; }.navlink { font-size:12px; font-weight:700; color:#c4c4d0; transition:color .2s; }.navlink:hover { color:var(--purple); }
+    .contact-mini { color:#0c0d13; background:var(--purple); padding:10px 16px; border-radius:6px; font-size:12px; font-weight:700; }
+    .mobile-nav { display:none; }
+    .hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.08); }
+    .hero:before { content:""; position:absolute; width:650px; height:650px; top:-160px; right:-250px; background:radial-gradient(circle,rgba(192,174,255,.14),transparent 66%); pointer-events:none; }
+    .hero-inner { position:relative; padding:134px 0 132px; }
+    .hello { color:var(--mint); font-size:14px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; display:flex; gap:14px; align-items:center; }
+    .hello:before { content:""; display:block; width:29px; height:2px; background:var(--mint); }
+    .hero h1 { font:600 clamp(72px,13.3vw,158px)/.94 "Space Grotesk",sans-serif; letter-spacing:-.095em; margin:22px 0 32px; }
+    .hero h1 .last { color:var(--purple); display:block; }
+    .hero .lede { max-width:720px; color:#ccd0d9; font-size:clamp(18px,2.6vw,26px); line-height:1.5; letter-spacing:-.018em; }
+    .hero-bottom { margin-top:45px; display:flex; justify-content:space-between; align-items:center; gap:22px; flex-wrap:wrap; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .button { border-radius:8px; border:1px solid var(--border); padding:13px 19px; font-size:13px; font-weight:700; display:inline-flex; gap:15px; align-items:center; transition:transform .2s,border .2s,background .2s; }
+    .button:hover { transform:translateY(-2px); border-color:var(--purple); }
+    .button.primary { color:#131021; background:var(--purple); border-color:var(--purple); }.button.primary:hover { background:#d3c6ff; }
+    .scroll-note { color:var(--faint); text-transform:uppercase; font-size:10px; letter-spacing:.18em; font-weight:700; }
+    .spark { position:absolute; right:9%; top:39%; color:var(--mint); font-size:clamp(80px,12vw,155px); transform:rotate(13deg); opacity:.75; pointer-events:none; font-family:"Space Grotesk",sans-serif; }
+    .marquee { background:#171824; border-bottom:1px solid rgba(255,255,255,.08); }
+    .marquee .container { min-height:66px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; padding:13px 0; }
+    .marquee span { font-size:12px; letter-spacing:.045em; font-weight:700; color:#c1c4d1; white-space:nowrap; }
+    .marquee i { color:var(--purple); font-style:normal; margin-right:8px; }
+    section { padding:114px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+    .overline { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--mint); margin:0 0 14px; }
+    h2 { font:600 clamp(39px,5.3vw,66px)/1.08 "Space Grotesk",sans-serif; letter-spacing:-.067em; margin:0; }
+    h3 { font-family:"Space Grotesk",sans-serif; }
+    p { margin:0 0 17px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:35px; margin-bottom:45px; }
+    .section-head p { max-width:390px; font-size:15px; color:var(--muted); margin:0; }
+    .about-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:85px; }
+    .about-side { position:relative; }
+    .about-side .scribble { display:inline-flex; align-items:center; justify-content:center; color:var(--purple); width:104px; height:104px; border:2px solid var(--purple); border-radius:50%; transform:rotate(-14deg); margin-top:35px; font:700 35px "Space Grotesk",sans-serif; box-shadow:inset 0 0 0 12px rgba(192,174,255,.05); }
+    .about-text { font-size:17px; line-height:1.92; color:#c9c9d5; }
+    .about-text strong { color:var(--white); }
+    .personality { display:flex; flex-wrap:wrap; gap:11px; margin-top:28px; }
+    .chip { border:1px solid #444351; background:#181a25; padding:9px 14px; font-size:12px; font-weight:600; border-radius:100px; color:#e3dff5; }
+    .chip:nth-child(2n) { border-color:#3b514f; color:#d2efe8; }
+    .skills { background:#101118; }
+    .skill-buckets { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; margin-top:42px; }
+    .skill { background:#191b27; border:1px solid #333543; border-radius:14px; padding:28px 25px; min-height:205px; }
+    .skill-num { color:var(--purple); font-weight:700; font-size:12px; }
+    .skill h3 { font-size:23px; line-height:1.2; margin:34px 0 12px; letter-spacing:-.04em; }
+    .skill p { color:#a9afbe; font-size:13px; line-height:1.8; margin:0; }
+    .projects-list { display:grid; gap:64px; }
+    .case { display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; }
+    .case:nth-child(even) .case-art { order:2; }
+    .case-art { overflow:hidden; position:relative; aspect-ratio:1.42; border-radius:18px; border:1px solid #3b3a4a; background:#242039; padding:25px; display:grid; place-items:center; }
+    .case-art.a1 { background:radial-gradient(circle at 15% 20%,rgba(203,170,255,.3),transparent 51%),#1c1a31; }
+    .case-art.a2 { background:radial-gradient(circle at 83% 30%,rgba(130,218,214,.26),transparent 55%),#15232a; }
+    .case-art.a3 { background:radial-gradient(circle at 55% 95%,rgba(247,189,137,.26),transparent 58%),#28211f; }
+    .mock { width:100%; max-width:410px; border-radius:12px; border:1px solid #747084; background:#0f111b; transform:rotate(-3deg); box-shadow:0 21px 55px #0006; overflow:hidden; }
+    .a2 .mock { transform:rotate(3deg); }.a3 .mock { transform:rotate(-2deg); }
+    .mock-bar { padding:11px 15px; display:flex; align-items:center; gap:6px; border-bottom:1px solid #3b3c4c; }
+    .dot { display:block; width:7px; height:7px; border-radius:50%; background:#f4a9a9; }.dot:nth-child(2) { background:#f4d998; }.dot:nth-child(3) { background:#a7d7b6; }
+    .mock-label { margin-left:auto; font-size:10px; letter-spacing:.06em; color:#aab0c5; }
+    .mock-inner { padding:19px; }
+    .mock-title { font:600 21px/1.2 "Space Grotesk",sans-serif; letter-spacing:-.05em; margin-bottom:18px; }
+    .metric-row { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:13px; }
+    .metric { padding:12px; border:1px solid #383749; border-radius:8px; background:#1b1c29; }
+    .metric small { display:block; font-size:9px; color:#adadbc; }
+    .metric strong { display:block; font-size:13px; color:var(--mint); margin-top:5px; }
+    .fake-lines { display:grid; gap:8px; }.fake-lines span { display:block; height:8px; border-radius:7px; background:#343548; }
+    .fake-lines span:nth-child(2) { width:78%; background:#46435a; }.fake-lines span:nth-child(3) { width:56%; }
+    .mock-footer { margin-top:15px; display:flex; gap:6px; }.mock-footer span { padding:5px 8px; background:#2d2942; color:#d2c9ff; font-size:9px; border-radius:4px; }
+    .a2 .mock-footer span { background:#213c42; color:#b5e5df; }.a3 .mock-footer span { background:#443126; color:#f3c7a5; }
+    .case-index { text-transform:uppercase; color:var(--purple); font-size:11px; font-weight:700; letter-spacing:.15em; }
+    .case-info h3 { margin:17px 0 14px; font-size:clamp(28px,3.5vw,42px); letter-spacing:-.057em; line-height:1.16; }
+    .case-info p { color:#bcc0ce; font-size:15px; line-height:1.83; }
+    .case-link { display:inline-block; border-bottom:1px solid var(--purple); padding-bottom:4px; color:#e8e1ff; font-size:12px; font-weight:700; margin-top:9px; }
+    .case-status { margin-top:20px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#adb1c4; }
+    .case-status span { color:var(--mint); }
+    .project-disclaimer { color:var(--faint); font-size:12px; margin-top:43px; }
+    .experience { background:#101118; }
+    .jobs { margin-top:36px; border-top:1px solid var(--border); }
+    .job { display:grid; grid-template-columns:160px 1fr; gap:35px; padding:28px 0; border-bottom:1px solid var(--border); }
+    .job time { color:var(--mint); font-size:12px; font-weight:700; }
+    .job h3 { margin:0 0 5px; font-size:24px; letter-spacing:-.04em; }
+    .job b { display:block; margin-bottom:9px; color:#d3d3e0; font-size:13px; font-weight:600; }
+    .job p { color:#adb0c0; font-size:14px; max-width:700px; margin:0; }
+    .github-line { background:#1a1b26; border:1px solid #3a3949; border-radius:15px; padding:28px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .github-line strong { font-family:"Space Grotesk",sans-serif; font-size:21px; letter-spacing:-.04em; }
+    .github-line p { margin:2px 0 0; color:#acafbe; font-size:13px; }
+    #repos { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px; }
+    .repo { padding:21px; border-radius:12px; background:#151721; border:1px solid var(--border); display:grid; gap:8px; transition:border-color .2s; }
+    .repo:hover { border-color:var(--purple); }
+    .repo strong { font:600 17px "Space Grotesk",sans-serif; overflow-wrap:anywhere; }
+    .repo p { font-size:12px; color:var(--muted); margin:0; }
+    .repo em { color:var(--mint); font-style:normal; font-size:11px; }
+    .connect { position:relative; overflow:hidden; }
+    .connect:before { position:absolute; content:"✳"; font-size:220px; font-family:"Space Grotesk",sans-serif; top:5px; right:10%; transform:rotate(-13deg); color:rgba(192,174,255,.1); pointer-events:none; }
+    .connect h2 { max-width:900px; }
+    .connect p { max-width:600px; font-size:17px; color:var(--muted); margin-top:20px; }
+    .connect .actions { margin-top:30px; }
+    footer { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:30px 0 40px; font-size:12px; color:#979bad; }
+    footer a:hover { color:var(--purple); }
+    @media(max-width:850px) {
+      nav { gap:18px; } .contact-mini { display:none; }
+      .about-grid { gap:45px; }.skill-buckets { grid-template-columns:1fr 1fr; }.case { gap:28px; }
+      .spark { top:22%; right:1%; opacity:.32; }
+    }
+    @media(max-width:650px) {
+      .container { width:min(1100px,calc(100% - 36px)); }
+      .header-content { min-height:68px; }
+      header nav { display:none; }
+      .mobile-nav { display:block; position:relative; }
+      .mobile-nav summary { cursor:pointer; list-style:none; padding:7px 10px; font-size:13px; border:1px solid #414252; border-radius:6px; }
+      .mobile-nav summary::-webkit-details-marker { display:none; }
+      .mobile-menu { display:grid; gap:4px; position:absolute; top:41px; right:0; width:180px; border:1px solid #414252; background:#1b1c28; padding:10px; border-radius:10px; }
+      .mobile-menu a { padding:8px 10px; font-size:13px; }
+      .hero-inner { padding:97px 0 89px; }
+      .hero h1 { font-size:clamp(57px,14vw,92px); }
+      .hero .lede { font-size:18px; }
+      .hero-bottom { margin-top:30px; }.scroll-note { display:none; }
+      .marquee .container { justify-content:flex-start; gap:10px 20px; }
+      section { padding:77px 0; }
+      .section-head { display:block; }.section-head p { margin-top:16px; }
+      .about-grid,.skill-buckets,.case,#repos { grid-template-columns:1fr; }
+      .about-side .scribble { margin-top:22px; width:73px; height:73px; font-size:25px; }
+      .skill { min-height:175px; }.skill h3 { margin-top:22px; }
+      .case:nth-child(even) .case-art { order:0; }
+      .projects-list { gap:45px; }
+      .case-art { padding:18px; }
+      .case-info h3 { margin-top:12px; }
+      .job { grid-template-columns:1fr; gap:9px; padding:25px 0; }
+      .github-line { flex-direction:column; align-items:flex-start; padding:23px; }
+      .connect:before { right:-40%; top:10%; }
+      footer { padding:25px 0; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="container header-content">
+    <a class="logo" href="#top" aria-label="Logan Shaheen, home">logan<span>.</span></a>
+    <nav aria-label="Main navigation"><a class="navlink" href="#about">About</a><a class="navlink" href="#skills">Skills</a><a class="navlink" href="#projects">Projects</a><a class="navlink" href="#experience">Experience</a></nav>
+    <a class="contact-mini" href="#contact">Let's talk ↗</a>
+    <details class="mobile-nav"><summary>Menu ☰</summary><div class="mobile-menu"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></details>
+  </div></header>
+  <main id="main">
+    <section class="hero" id="top"><div class="container hero-inner">
+      <div class="hello">Hello, I'm</div>
+      <h1>LOGAN<span class="last">SHAHEEN<span aria-hidden="true">.</span></span></h1>
+      <p class="lede">I'm a marketer who's curious about people, brands, and what happens when good questions meet useful technology.</p>
+      <div class="hero-bottom"><div class="actions"><a class="button primary" href="#projects">See what I'm building ↗</a><a class="button" href="#about">Get to know me ↓</a></div><span class="scroll-note">Made with curiosity · 2026</span></div>
+      <span class="spark" aria-hidden="true">✳</span>
+    </div></section>
+    <div class="marquee"><div class="container"><span><i>✳</i> MARKETING</span><span><i>✳</i> CONSUMER BEHAVIOR</span><span><i>✳</i> APPLIED AI</span><span><i>✳</i> E-COMMERCE</span><span><i>✳</i> CURIOSITY</span></div></div>
+
+    <section id="about"><div class="container about-grid">
+      <div class="about-side"><p class="overline">01 / The person</p><h2>A little bit about me.</h2><div class="scribble" aria-hidden="true">LS</div></div>
+      <div class="about-text">
+        <p>I'm Logan. I graduated from <strong>Loyola University Maryland</strong> with a marketing degree, but my favorite part of learning has always been asking <em>why</em>. Why do people choose one product over another? Why do some ideas stick? How can a better process free us to do more interesting work?</p>
+        <p>I've worked in <strong>e-commerce and growth marketing</strong>, explored new places while studying abroad in Copenhagen, and learned plenty about leadership as president of Loyola Men's Rugby Club.</p>
+        <p>Lately, I've been building AI-assisted systems to make my own research, decision-making, and career development more useful. I'm interested in what AI can actually <em>help us do</em> — not just what it can generate.</p>
+        <p>Outside of work, I like reading, rugby, travel, making things, and conversations with people who see the world differently.</p>
+        <div class="personality" aria-label="Things I enjoy"><span class="chip">📚 Fiction &amp; nonfiction</span><span class="chip">🏉 Rugby</span><span class="chip">🌍 Exploring new places</span><span class="chip">🧠 Curious conversations</span><span class="chip">🛠️ Making things</span></div>
+      </div>
+    </div></section>
+
+    <section id="skills" class="skills"><div class="container">
+      <div class="section-head"><div><p class="overline">02 / My toolkit</p><h2>What I bring to the table.</h2></div><p>Not a laundry list of buzzwords — these are the areas and tools I've actually worked with or am actively developing.</p></div>
+      <div class="skill-buckets">
+        <div class="skill"><span class="skill-num">01 — STRATEGY</span><h3>Research &amp; curiosity</h3><p>Consumer questions, competitor research, personas, brand storytelling, and understanding how people make decisions.</p></div>
+        <div class="skill"><span class="skill-num">02 — E-COMMERCE</span><h3>Marketing tools</h3><p>Amazon Seller Central, Helium 10, SEO, marketplace content, HubSpot, and Excel.</p></div>
+        <div class="skill"><span class="skill-num">03 — AI SYSTEMS</span><h3>Workflow building</h3><p>Structured prompts, evaluation frameworks, research workflows, Notion-based systems, and iterative problem-solving.</p></div>
+      </div>
+    </div></section>
+
+    <section id="projects"><div class="container">
+      <div class="section-head"><div><p class="overline">03 / Selected projects</p><h2>Ideas I'm turning into tools.</h2></div><p>Some are early. Some are evolving. I'm documenting the thinking and progress instead of waiting until every detail is perfect.</p></div>
+      <div class="projects-list">
+        <article class="case">
+          <div class="case-art a1" aria-label="Conceptual graphic illustrating a resume analysis workspace">
+            <div class="mock"><div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="mock-label">WORKSPACE / 01</span></div><div class="mock-inner"><div class="mock-title">Resume Intelligence HQ</div><div class="metric-row"><div class="metric"><small>Compare</small><strong>Role requirements</strong></div><div class="metric"><small>Examine</small><strong>Real experience</strong></div></div><div class="fake-lines"><span></span><span></span><span></span></div><div class="mock-footer"><span>FIT ANALYSIS</span><span>GAP REVIEW</span></div></div></div>
+          </div>
+          <div class="case-info"><span class="case-index">AI Project 001</span><h3>Resume Intelligence HQ</h3><p>An AI-assisted way to assess role fit using both job requirements and real work experience. The goal is to think more like a careful recruiter, not just maximize an arbitrary ATS score.</p><p><strong>Why I built it:</strong> I wanted a more useful way to understand where I actually fit — and where I still had room to grow.</p><div class="case-status"><span>●</span> In development · Process design / AI</div></div>
+        </article>
+        <article class="case">
+          <div class="case-art a2" aria-label="Conceptual graphic illustrating job discovery criteria">
+            <div class="mock"><div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="mock-label">WORKSPACE / 02</span></div><div class="mock-inner"><div class="mock-title">Job Discovery HQ</div><div class="metric-row"><div class="metric"><small>Priority</small><strong>Meaningful fit</strong></div><div class="metric"><small>Explore</small><strong>New roles</strong></div></div><div class="fake-lines"><span></span><span></span><span></span></div><div class="mock-footer"><span>RESEARCH</span><span>TRADEOFFS</span></div></div></div>
+          </div>
+          <div class="case-info"><span class="case-index">AI Project 002</span><h3>Job Discovery HQ</h3><p>A more intentional approach to job discovery that goes beyond searching for titles. The system considers location preferences, role responsibilities, and long-term direction before deciding what deserves attention.</p><p><strong>Why I built it:</strong> A long list of job postings isn't the same thing as finding a good opportunity.</p><div class="case-status"><span>●</span> In development · Research / AI</div></div>
+        </article>
+        <article class="case">
+          <div class="case-art a3" aria-label="Conceptual graphic illustrating an organized learning workspace">
+            <div class="mock"><div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="mock-label">WORKSPACE / 03</span></div><div class="mock-inner"><div class="mock-title">Operation Slow Burn</div><div class="metric-row"><div class="metric"><small>Focus</small><strong>Weekly actions</strong></div><div class="metric"><small>Learn</small><strong>Mentor feedback</strong></div></div><div class="fake-lines"><span></span><span></span><span></span></div><div class="mock-footer"><span>NOTION</span><span>LEARNING</span></div></div></div>
+          </div>
+          <div class="case-info"><span class="case-index">Systems Project 003</span><h3>Operation Slow Burn</h3><p>A personal career-development workspace that turns conversations, mentor feedback, ideas, and weekly goals into concrete actions.</p><p><strong>Why I built it:</strong> I wanted a way to keep moving forward without confusing being busy with making progress.</p><div class="case-status"><span>●</span> Active workspace · Notion / Planning</div></div>
+        </article>
+      </div>
+      <p class="project-disclaimer">Project graphics above are illustrative concept previews, not screenshots of finished apps. Demos, outcomes, and repository links will be added as they're ready.</p>
+    </div></section>
+
+    <section id="experience" class="experience"><div class="container">
+      <div class="section-head"><div><p class="overline">04 / My background</p><h2>Where I've learned.</h2></div><p>My experience spans growth research, marketplace marketing, and leading teams. Each has shaped how I approach people and problems.</p></div>
+      <div class="jobs">
+        <div class="job"><time>SUMMER 2026</time><div><h3>Attention Arc</h3><b>Growth Intern</b><p>Client and competitor research, pitch materials, RFP coordination, case studies, and HubSpot pipeline support.</p></div></div>
+        <div class="job"><time>2025–2026</time><div><h3>Trinity Group International</h3><b>Marketing Intern</b><p>Marketplace product content, keyword research, Amazon Seller Central, and e-commerce merchandising work.</p></div></div>
+        <div class="job"><time>CLASS OF 2026</time><div><h3>Loyola University Maryland</h3><b>BBA, Marketing · Men's Rugby Club President</b><p>Marketing education, team leadership, and a semester studying in Copenhagen.</p></div></div>
+      </div>
+    </div></section>
+
+    <section id="github"><div class="container">
+      <div class="section-head"><div><p class="overline">05 / In public</p><h2>My GitHub.</h2></div><p>This website is on GitHub, and the section below will grow as I publish more public projects.</p></div>
+      <div class="github-line"><div><strong>@loganshaheen1-commits</strong><p>My public code and experiments</p></div><a class="button" href="https://github.com/loganshaheen1-commits" target="_blank" rel="noopener noreferrer">Visit GitHub ↗</a></div>
+      <div id="repos" aria-live="polite"><p style="color:var(--muted)">Loading repositories…</p></div>
+    </div></section>
+
+    <section id="contact" class="connect"><div class="container">
+      <p class="overline">06 / Let's connect</p><h2>I like meeting curious people.</h2>
+      <p>Whether you're working in marketing, thinking about consumer behavior, or building something interesting with AI, I'm always up for a conversation.</p>
+      <div class="actions"><a class="button primary" href="https://www.linkedin.com/in/logan-shaheen/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a><a class="button" href="https://github.com/loganshaheen1-commits" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></div>
+    </div></section>
+  </main>
+  <footer class="container"><span>© <span id="year">2026</span> Logan Shaheen · Always a work in progress.</span><span><a href="#top">Back to top ↑</a> &nbsp; · &nbsp; <a href="index.html">Original layout</a></span></footer>
+  <script>
+    (function(){
+      document.getElementById('year').textContent=new Date().getFullYear();
+      var box=document.getElementById('repos');
+      function fallback(){
+        box.replaceChildren();
+        var a=document.createElement('a');a.className='repo';a.href='https://github.com/loganshaheen1-commits/loganshaheen1-commits.github.io';a.target='_blank';a.rel='noopener noreferrer';
+        var title=document.createElement('strong');title.textContent='Personal portfolio website';
+        var p=document.createElement('p');p.textContent='The source code for this site.';a.append(title,p);box.append(a);
+      }
+      fetch('https://api.github.com/users/loganshaheen1-commits/repos?sort=updated&per_page=100')
+      .then(function(r){if(!r.ok)throw Error('unavailable');return r.json();})
+      .then(function(repos){
+        if(!Array.isArray(repos))return fallback();
+        repos=repos.filter(function(r){return !r.private&&!r.fork;}).slice(0,6);
+        if(!repos.length)return fallback();
+        box.replaceChildren();
+        repos.forEach(function(r){var a=document.createElement('a');a.className='repo';a.href=r.html_url;a.target='_blank';a.rel='noopener noreferrer';var title=document.createElement('strong');title.textContent=r.name;var p=document.createElement('p');p.textContent=r.description||'A public repository on my GitHub.';var info=document.createElement('em');info.textContent=(r.language||'Repository')+' · View ↗';a.append(title,p,info);box.append(a);});
+      }).catch(fallback);
+      document.querySelectorAll('.mobile-menu a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.mobile-nav').open=false;});});
+    })();
+  </script>
+</body>
+</html>
